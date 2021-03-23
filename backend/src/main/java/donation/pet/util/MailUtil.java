@@ -15,7 +15,6 @@ import java.util.Random;
 @Component
 @RequiredArgsConstructor
 public class MailUtil {
-
     private final JavaMailSender javaMailSender;
 
     public String getKey(boolean lowerCheck, int size) {

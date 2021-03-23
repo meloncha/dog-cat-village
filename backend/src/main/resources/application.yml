@@ -3,6 +3,11 @@ server:
     context-path: /api
   error:
     include-message: always
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: kurento
+    key-store-type: JKS
+    key-alias: kurento-selfsigned
 
 spring:
   datasource:
