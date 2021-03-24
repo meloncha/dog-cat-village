@@ -2,17 +2,20 @@ package donation.pet.domain.streaming;
 
 import org.kurento.client.MediaPipeline;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Presenter {
+public class Room {
 
-    private UserSession userSession;
+    private UserSession presenter;
     private MediaPipeline pipeline;
-    private final ConcurrentHashMap<String, Viewer> viewers = new ConcurrentHashMap<>();
+    private String roomName;
+    private LocalDateTime startTime;
+    // Map<userId(Viewer), Viewer>
+    private final ConcurrentHashMap<String, UserSession> viewers = new ConcurrentHashMap<>();
 
-    public Presenter(UserSession userSession, MediaPipeline pipeline) {
-        this.userSession = userSession;
+    public Room(UserSession presenter, MediaPipeline pipeline) {
+        this.presenter = presenter;
         this.pipeline = pipeline;
     }
-}
 }
