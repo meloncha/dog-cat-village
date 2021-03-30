@@ -1,7 +1,6 @@
 package donation.pet.service;
 
 import donation.pet.domain.streaming.RoomRepository;
-import donation.pet.domain.user.UserRepository;
 import donation.pet.dto.streaming.StreamingListResDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,8 +12,6 @@ import java.util.List;
 public class StreamingService {
 
     private final RoomRepository roomRepository;
-    private final UserRepository userRepository;
-
 
     public List<StreamingListResDto> getList(Long userId) {
 
