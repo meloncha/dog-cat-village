@@ -39,12 +39,15 @@ public class Shelter extends Member {
     private final List<Exchange> exchanges = new ArrayList<>();
 
     @Builder
-    public Shelter(Long id, String name, String email, String password, String phoneNumber,
-                   String accept, String contractAddress, String profileImage, String tempLink,
-                   LocalDateTime tempLinkDate, Set<MemberRole> roles, String introduce) {
-        super(id, name, email, password, phoneNumber, accept, contractAddress, profileImage, tempLink, tempLinkDate, roles);
+    public Shelter(Long id, String name, String email, String password, String phoneNumber, String accept,
+                   String contractAddress, String profileImage, String tempLink, LocalDateTime tempLinkDate,
+                   Set<MemberRole> roles, String siteUrl, String introduce) {
+        super(id, name, email, password, phoneNumber, accept,
+                contractAddress, profileImage, tempLink, tempLinkDate, roles);
+        this.siteUrl = siteUrl;
         this.introduce = introduce;
     }
+
 
     //////////////////////////////////////
 

@@ -6,8 +6,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
 
-import java.util.Random;
-
 @Component
 public class MailUtil {
 
@@ -19,26 +17,10 @@ public class MailUtil {
         this.appProperties = appProperties;
     }
 
-    public String makeToken() {
-        Random ran = new Random();
-        StringBuilder sb = new StringBuilder();
-
-        do {
-            int num = ran.nextInt(75) + 48;
-            if ((num >= 48 && num <= 57)
-                    || (num >= 65 && num <= 90)
-                    || (num >= 97 && num <= 122)) {
-                sb.append((char) num);
-            }
-        } while (sb.length() < 30);
-
-        return sb.toString();
-    }
-
     public String sendAuthenticateEmail(String email) {
         // 메일 보내기
         StringBuilder mailContent = new StringBuilder();
-        String token = makeToken();
+        String token = TokenUtil.makeToken();
 
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
@@ -64,7 +46,7 @@ public class MailUtil {
     public String sendChangePassword(String email) {
         // 메일 보내기
         StringBuilder mailContent = new StringBuilder();
-        String token = makeToken();
+        String token = TokenUtil.makeToken();
 
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);

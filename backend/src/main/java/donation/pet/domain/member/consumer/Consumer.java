@@ -27,7 +27,8 @@ public class Consumer extends Member {
     public Consumer(Long id, String name, String email, String password, String phoneNumber,
                     String accept, String contractAddress, String profileImage, String tempLink,
                     LocalDateTime tempLinkDate, Set<MemberRole> roles) {
-        super(id, name, email, password, phoneNumber, accept, contractAddress, profileImage, tempLink, tempLinkDate, roles);
+        super(id, name, email, password, phoneNumber, accept,
+                contractAddress, profileImage, tempLink, tempLinkDate, roles);
     }
 
     public void updateConsumer(String name, String password, String phoneNumber) {

@@ -13,8 +13,8 @@ public class StreamingService {
 
     private final RoomRepository roomRepository;
 
-    public List<StreamingListResDto> getList(Long userId) {
-
+    public List<StreamingListResDto> getList() {
+        roomRepository.getRoomList();
         return null;
     }
 }
