@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
+import org.springframework.scheduling.annotation.EnableAsync;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.annotation.PostConstruct;
@@ -17,6 +18,7 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableJpaAuditing
+@EnableAsync
 @EnableSwagger2
 @EnableWebSocket
 public class PetApplication implements WebSocketConfigurer {

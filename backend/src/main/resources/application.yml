@@ -39,6 +39,9 @@ spring:
 
 #  jackson:
 #    deserialization: true
+  redis:
+    host: j4b106.p.ssafy.io
+    port: 6379
 
 logging:
   level:

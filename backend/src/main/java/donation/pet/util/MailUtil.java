@@ -22,7 +22,7 @@ public class MailUtil {
         StringBuilder mailContent = new StringBuilder();
         String token = TokenUtil.makeToken();
 
-        MimeMessagePreparator messagePreparator = mimeMessage -> {
+        MimeMessagePreparator messagePreparer = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom("noreply@bowmew.co.kr");
             messageHelper.setTo(email);
@@ -38,7 +38,7 @@ public class MailUtil {
             messageHelper.setText(content, true);
         };
 
-        javaMailSender.send(messagePreparator);
+        javaMailSender.send(messagePreparer);
 
         return token;
     }
@@ -48,7 +48,7 @@ public class MailUtil {
         StringBuilder mailContent = new StringBuilder();
         String token = TokenUtil.makeToken();
 
-        MimeMessagePreparator messagePreparator = mimeMessage -> {
+        MimeMessagePreparator messagePreparer = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom("noreply@bowmew.co.kr");
             messageHelper.setTo(email);
@@ -64,7 +64,7 @@ public class MailUtil {
             messageHelper.setText(content, true);
         };
 
-        javaMailSender.send(messagePreparator);
+        javaMailSender.send(messagePreparer);
 
         return token;
     }
