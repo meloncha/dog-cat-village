@@ -9,28 +9,28 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
 @Configuration
-public class WebSocketConfig implements WebSocketConfigurer {
+public class WebSocketConfig {
 
-        @Bean
-        public SignalingHandler signalHandler() {
-            return new SignalingHandler();
-        }
-
-        @Bean
-        public KurentoClient kurentoClient() {
-            return KurentoClient.create();
-        }
-
-        @Bean
-        public ServletServerContainerFactoryBean createServletServerContainerFactoryBean() {
-            ServletServerContainerFactoryBean container = new ServletServerContainerFactoryBean();
-            container.setMaxTextMessageBufferSize(32768);
-            return container;
-        }
-
-        // WebSocket를 등록 (wss:// + localhost + /call)
-        @Override
-        public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-            registry.addHandler(signalHandler(), "/call");
-        }
+//        @Bean
+//        public SignalingHandler signalHandler() {
+//            return new SignalingHandler();
+//        }
+//
+//        @Bean
+//        public KurentoClient kurentoClient() {
+//            return KurentoClient.create();
+//        }
+//
+//        @Bean
+//        public ServletServerContainerFactoryBean createServletServerContainerFactoryBean() {
+//            ServletServerContainerFactoryBean container = new ServletServerContainerFactoryBean();
+//            container.setMaxTextMessageBufferSize(32768);
+//            return container;
+//        }
+//
+//        // WebSocket를 등록 (wss:// + localhost + /call)
+//        @Override
+//        public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+//            registry.addHandler(signalHandler(), "/call");
+//        }
 }
