@@ -30,6 +30,11 @@ public class SignalingHandler extends TextWebSocketHandler {
     private UserSession presenterUserSession;
 
     @Override
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        log.info("Client Connect!!!!!!!!! {}", session.getId());
+    }
+
+    @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         JsonObject jsonMessage = gson.fromJson(message.getPayload(), JsonObject.class);
         log.debug("Incoming message from session '{}': {}", session.getId(), jsonMessage);

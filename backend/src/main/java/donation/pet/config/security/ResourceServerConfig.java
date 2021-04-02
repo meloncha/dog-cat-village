@@ -7,6 +7,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 @Configuration
 @EnableResourceServer
@@ -22,48 +23,25 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http
 //                .httpBasic().disable()
 //                .csrf().disable()
+//                .cors().configurationSource(corsConfigurationSource())
+//                    .and()
                 .anonymous()
-                .and()
+                    .and()
                 .authorizeRequests()
-                .antMatchers("/members/test")
-                .authenticated()
-                .anyRequest()
-                .permitAll()
+                    .antMatchers("/members/test")
+                        .authenticated()
+                    .anyRequest()
+                        .permitAll()
 //                    .antMatchers("/members/signup", "/members/duplication", "/members/login",
 //                            "/members/password/**", "/members/auth/**", "/members/forget")
 //                        .permitAll()
 //                    .anyRequest()
 //                        .authenticated()
-                .and()
+                    .and()
                 .exceptionHandling()
                 .accessDeniedHandler(new OAuth2AccessDeniedHandler());
-//                    .and()
-//                .csrf().disable();
-
-//                .authorizeRequests()
-//                    // 아무나 접근 가능한 링크
-//                    .antMatchers("/users/signup", "/users/login", "/users/check").permitAll()
-//                    // 나머지
-//                    .anyRequest().authenticated()
-//                    .and()
-//                .formLogin()
-//                    .permitAll()
-//                    .and()
-//                .exceptionHandling()
-//                    .accessDeniedHandler(new OAuth2AccessDeniedHandler())
-//                    .and()
-//                .csrf().disable();
-
-//                .anonymous()
-//                    .and()
-//                .authorizeRequests()
-//                    .mvcMatchers(HttpMethod.GET, "/api/**")
-//                        .anonymous()
-//                    .anyRequest()
-//                        .authenticated()
-//                    .and()
-//                .exceptionHandling()
-//                    .accessDeniedHandler(new OAuth2AccessDeniedHandler());
-
     }
+
+//    private CorsConfigurationSource corsConfigurationSource() {
+//    }
 }
