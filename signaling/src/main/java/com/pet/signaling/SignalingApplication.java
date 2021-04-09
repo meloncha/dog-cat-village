@@ -9,6 +9,9 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 public class SignalingApplication {
 
     public static void main(String[] args) {
+        PingPong pingPong = new PingPong();
+        Thread t = new Thread(pingPong);
+        t.start();
         SpringApplication.run(SignalingApplication.class, args);
     }
 }
